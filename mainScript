@@ -1,0 +1,19 @@
+import os
+import time
+
+file="swiftly.mp3"
+
+def notify(h,m):
+    if h=='18' and m=='':
+        print(os.system('mpg123 '+file))
+
+h,m='00','00'
+
+while (h!=18) and (m!='15'):
+    notify(h,m)
+    if h=='18' and m=='14':
+        os.system("mpg123 "+file)
+        break
+    tm=time.ctime().split(' ')[3].split(':')
+    h,m=tm[0],tm[1]
+    print(h,':',m)
